@@ -1,6 +1,6 @@
-##**House Sales Price Prediction**##
+##House Sales Price Prediction##
 
-`*You want to buy/sell a house. You are at the right place !! Uhhh! I can predict the estimated Sales Price!*`
+`You want to buy/sell a house. You are at the right place !! Uhhh! I can predict the estimated Sales Price!`
 
 >This project is for house sales price prediction which can be used by seller/buyer. Once he gets the estimated price he can decide whether to continue with >the real estate agent or not. If he decides to continue, he will enter the contact details. Real estate agent will use these details to contact the customer.
 
