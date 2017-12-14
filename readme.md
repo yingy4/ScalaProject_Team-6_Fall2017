@@ -4,7 +4,7 @@
 
 >This project is for house sales price prediction which can be used by seller/buyer. Once he gets the estimated price he can decide whether to continue with >the real estate agent or not. If he decides to continue, he will enter the contact details. Real estate agent will use these details to contact the customer.
 
-** Data: **
+### *Data:* ###
 House Prices Dataset on Kaggle:
 * https://www.kaggle.com/c/house-prices-advanced-regression-techniques
 * https://www.kaggle.com/harlfoxem/housesalesprediction
@@ -15,17 +15,15 @@ We used Spark SQL for loading and pre-processing the data. We removed some of th
 The data can be found at [Preprocessing Data]()
 
 
-#### Building Prediction Models: 
-####
+### *Building Prediction Models:* ###
 We used Spark MLLib to build the Linear Regression and Random Forest Regression models. Thea data was loaded from MySQL database and was split into training and test data in the ratio 80:20.We used VectorAssembler to assemble all the features. Built Linear Regression and Random Forest Regression pipeline. Once the model is built evaluated their performance with the test data. For our data, the RMSE for both the models are almost the same. But Random Forest Regression was having little lower RMSE compared to Lonear Regression model. These models are store for prediction of sales price for the user input data in future. The saved models can be found at [Prediction Models]()
 
-#### Web Application:
-####
+### *Web Application:* ###
 We built a web application using Play and Alick framework to predict the house sales prices. Here the user enters the house details he is buying/selling and presses estimate button. The user entered house details will be saved in a table 'testhouses'(execute the createTable.sql before running the application and the file can be found at [Estimated Sales Price]() and used for predicting the sales price using the regression model we had already built and saved.The estimated sales price will be shown to the user and he can decide whether to continue with the real estate agent or not. If he decides to continue, he will be taken to another page where he will be entering his/her contact details. 
 
 The real estate agent now can access the contact details of the user and contact him regarding the house sales.
 
-`Exploratory Analysis-Visualization:`
+### *Exploratory Analysis-Visualization:* ###
 Perforemed analysis on the data to get the insights like which location is having higer house prices, which are factors are higly correlated with sales price, influence of each feature on sales price and number of houses in a range of sales prices and so on. All visualizations are done using Apache Zeppelina and can be found at [Visualizations]()
 
 
