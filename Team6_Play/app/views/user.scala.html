@@ -1,0 +1,134 @@
+@(userForm: Form[model.UserFormData],users : Seq[model.User])(implicit request: RequestHeader)
+@main() {
+
+    <form idUser="user-data-form" role="form1" action='@routes.ApplicationController.addUser()' method="post" class="form-horizontal" align="center" autocomplete="off">
+
+        <fieldset class="user-fieldset">
+
+            <div class="user-form">
+                <label class="form-title" style="color: #F8741B; font-size: 22px;font-weight: bold; text-decoration:none">Customer Information</label>
+            </div>
+            <br/>
+            <table align="center" cellspacing="20">
+                <tr>
+                    <td align="left">
+                        <div class="user-form" id="firstName_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Firstname</strong> :
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="user-form" id="firstName_field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="text" id="firstName" name="firstName" value="" placeholder="First Name" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="user-form" id="lastName_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Lastname</strong> :
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="user-form" id="lastName_field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="text" id="lastName" name="lastName" value="" placeholder="Last Name" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="user-form" id="mobile_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Mobile</strong> :
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="user-form" id="mobile_field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="tel" id="mobile" name="mobile" placeholder="Mobile" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="user-form" id="email_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Email</strong> :
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="user-form" id="email_field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="email" id="email" name="email" placeholder="Email" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                <td align="left">
+                    <div class="user-form" id="sellerBuyer_field_label">
+                        <div class="controls col-xs-offset-3 col-xs-9">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <strong>Seller/Buyer</strong> :
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td align="center">
+                    <div class="user-form" id="sellerBuyer_field_label">
+                        <div class="controls col-xs-offset-3 col-xs-9">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <input type="text" name="sellerBuyer" placeholder="sellerBuyer" class="form-control input-lg" required>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            </table>
+            <br/>
+            <div class="form-actions controls ynt-btn-xlarge">
+                <button type="submit" class="btn btn-primary ynt-btn-orange">Send Details</button>
+            </div>
+
+        </fieldset>
+    </form>
+
+
+}

@@ -1,0 +1,349 @@
+@(userForm: Form[model.HouseFormData],houses : Seq[model.House])(implicit request: RequestHeader)
+@main() {
+
+    <form id="house-data-form" role="form" action='@routes.ApplicationController.addHouse()' method="post" class="form-horizontal" align="center" autocomplete="off">
+
+        <fieldset class="user-fieldset">
+
+            <div class="house-form">
+                <label class="form-title" style="color: #F8741B; font-size: 22px;font-weight: bold; text-decoration:none">House Sales Price Prediction</label>
+            </div>
+            <br/>
+            <table align="center" cellspacing="5">
+                <tr>
+                    <td align="left">
+                        <div class="house-form" id="yearBuilt_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Year Built</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="house-form" id="yearBuilt_field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="number" id="yearBuilt" name="yearBuilt" value="" placeholder="yearBuilt" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="house-form" id="yearRemodelled_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Year Remodelled</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="house-form" id="yearRemodelled_field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="number" id="yearRemodelled" name="yearRemodelled" value="" placeholder="yearRemodelled" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="house-form" id="numberOfBedrooms_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Number Of Bedrooms</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="house-form" id="numberOfBedrooms_field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="number" id="numberOfBedrooms" name="numberOfBedrooms" placeholder="numberOfBedrooms" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="house-form" id="numberOfBathrooms_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Number Of Bathrooms</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="house-form" id="numberOfBathrooms _field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="number" id="numberOfBathrooms" name="numberOfBathrooms" placeholder="numberOfBathrooms" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="house-form" id="numberOfFloors_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Number Of Floors</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="house-form" id="numberOfFloors_field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="number" id="numberOfFloors" name="numberOfFloors" placeholder="numberOfFloors" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="house-form" id="livingArea_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Living Area</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="house-form" id="livingArea_field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="number" id="livingArea" name="livingArea" placeholder="livingArea" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="house-form" id="basementExisting_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Basement Existing</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="house-form" id="basementExisting_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="number" id="basementExisting" name="basementExisting" placeholder="basementExisting" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+            <tr>
+                <td align="left">
+                    <div class="house-form" id="fireplaceExisting_field_label">
+                        <div class="controls col-xs-offset-3 col-xs-9">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <strong>Fireplace Existing</strong>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td align="center">
+                    <div class="house-form" id="fireplaceExisting_field_label">
+                        <div class="controls col-xs-offset-3 col-xs-9">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <input type="number" id="fireplaceExisting" name="fireplaceExisting" placeholder="fireplaceExisting" class="form-control input-lg" required>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+                <tr>
+                    <td align="left">
+                        <div class="house-form" id="poolExisting_field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Pool Existing</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="house-form" id="poolExisting_field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="number" id="poolExisting" name="poolExisting" placeholder="poolExisting" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="house-form" id="garageExisting_field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Garage Existing</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="house-form" id="garageExisting_field_value">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="number" id="garageExisting" name="garageExisting" placeholder="garageExisting" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="house-form" id="garageCount_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Garage Car Count</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="house-form" id="garageCount_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="number" id="garageCarCount" name="garageCarCount" placeholder="garageCarCount" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="house-form" id="closeToCommute_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Close To Commute</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="house-form" id="closeToCommute_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="number" id="closeToCommute" name="closeToCommute" placeholder="closeToCommute" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="house-form" id="salesCondition_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Sales Condition</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="house-form" id="salesCondition_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="number" id="salesCondition" name="salesCondition" placeholder="salesCondition" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <div class="house-form" id="zipCode_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <strong>Zip Code</strong> :
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div class="house-form" id="zipCode_field_label">
+                            <div class="controls col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    <input type="number" id="zipCode" name="zipCode" placeholder="zipCode" class="form-control input-lg" required>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+            <br/>
+            <div class="form-actions controls ynt-btn-xlarge">
+                <button type="submit" class="btn btn-primary ynt-btn-orange">Estimate</button>
+            </div>
+            <div class="form-actions controls ynt-btn-xlarge">
+                <div class="field">
+                    <label><b>Estimated Sales Price</b></label>
+                    <textarea>@for(house<-houses){@house.salesPrice</textarea>
+                </div>}
+                @routes.ApplicationController.addHouse()
+            </div>
+
+        </fieldset>
+    </form>
+    <div class="form-actions controls ynt-btn-xlarge">
+                    <form action="user" method="get" align="center">
+                        <label><b>Continue with Real Estate Agent</b></label>
+                        <button type="submit" align="center" class="btn btn-primary ynt-btn-orange">Yes! Enter Details</button>
+                    </form>
+    </div>
+
+
+}
+
+
+

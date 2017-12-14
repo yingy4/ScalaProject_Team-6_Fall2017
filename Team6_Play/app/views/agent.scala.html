@@ -1,0 +1,30 @@
+@(users : Seq[model.User])(implicit request: RequestHeader)
+@main() {
+    <div class="agent-display" >
+        <fieldset>
+            <legend align="center"><h3>Registered Users</h3></legend>
+            <table cellspacing="20">
+                <tr>
+                    <th>UserId</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Seller/Buyer</th>
+                </tr>
+                @for(user <- users){
+                    <tr>
+                        <td>@user.idUser</td>
+                        <td>@user.firstName</td>
+                        <td>@user.lastName</td>
+                        <td>@user.mobile</td>
+                        <td>@user.email</td>
+                        <td>@user.sellerBuyer</td>
+                        <td><a href="@routes.ApplicationController.deleteUser(user.idUser)">delete</a></td>
+                    </tr>
+                }
+            </table>
+        </fieldset>
+    </div>
+
+}
